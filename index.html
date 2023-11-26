@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ITEM3D: Directional Texture Editing for 3D Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/item3d.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ITEM3D: Directional Texture Editing for 3D Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Shengqi Liu<sup>1*</sup>,</span>
+            <span class="author-block">
+              Zhuo Chen<sup>1*</sup>,</span>
+            <span class="author-block">
+              Jingnan Gao<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://daodaofr.github.io/">Yicaho Yan</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              Wenhan Zhu<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Ke Gao<sup>2</sup>
+            </span>
+            <span class="author-block">
+              Jiangjing Lyu<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://english.seiee.sjtu.edu.cn/english/detail/842_802.htm">Xiaokang Yang</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="footnote"><sup>*</sup>Equal contribution</span>
+            <p>
+            <span class="author-block"><sup>1</sup>MoE Key Lab of Artificial Intelligence, Shanghai Jiao Tong University,</span>
+            <span class="author-block"><sup>2</sup> Alibaba Group</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/pdf/Directional_Texture_Editing_for_3D_Models.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2309.14872"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/shengqiliu1/ITEM3D"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://g-1nonly.github.io/EvaSurf-Website/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (Coming Soon)</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="my-hr">
+  <hr>
+</div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="columns is-centered has-text-centered">
+          <div class="column content">
+
+            <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/video/introcution_video.mp4"
+                    type="video/mp4">
+            </video> -->
+
+            <!-- <img src="./static/images/real_dataset.png" alt="Pulpit rock" width="1598" height="678"> -->
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- <p>
+            We present the first method capable of photorealistically reconstructing a non-rigidly
+            deforming scene using photos/videos captured casually from mobile phones.
+          </p> -->
+          <p>
+            Texture editing is a crucial task in 3D modeling that allows users to automatically manipulate the surface materials of 3D models. However, the inherent complexity of 3D models and the ambiguous text description lead to the challenge in this task. To address this challenge, we propose <strong>ITEM3D</strong>, a <strong>T</strong>exture <strong>E</strong>diting <strong>M</strong>odel designed for automatic <strong>3D</strong> object editing according to the text <strong>I</strong>nstructions. Leveraging the diffusion models and the differentiable rendering, ITEM3D takes the rendered images as the bridge of text and 3D representation, and further optimizes the disentangled texture and environment map. Previous methods adopted the absolute editing direction namely score distillation sampling (SDS) as the optimization objective, which unfortunately results in the noisy appearance and text inconsistency. To solve the problem caused by the ambiguous text, we introduce a relative editing direction, an optimization objective defined by the noise difference between the source and target texts, to release the semantic ambiguity between the texts and images. Additionally, we gradually adjust the direction during optimization to further address the unexpected deviation in the texture domain. Qualitative and quantitative experiments show that our ITEM3D outperforms the state-of-the-art methods on various 3D objects. We also perform text-guided relighting to show explicit control over lighting.
+          </p>
+          <!-- p>
+            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
+            photos/videos into deformable NeRF
+            models that allow for photorealistic renderings of the subject from arbitrary
+            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
+            using a
+            rig with two mobile phones that take time-synchronized photos, yielding train/validation
+            images of the same pose at different viewpoints. We show that our method faithfully
+            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
+            fidelity.
+          </p> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/video/introcution_video.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Method Overview</h2>
+      <p></p>
+    </div>
+
+    <div class="columns is-centered has-text-justified">
+      <div class="column">
+            <p>
+            <b>Pipeline of 3D model editing.</b> We render the 3D model with mesh, texture, and environment map into 2D images which are then added with noise ϵ. We further separately use the target text and the gradually adjusted source text as the conditions to predict the added noise via the U-Net. The difference between the two predicted noises serve as the relative direction to guide the optimization of the materials and environment map.
+            </p>
+            <!-- <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/video/method.mp4"
+                    type="video/mp4">
+            </video> -->
+             <br>
+            <img src="./static/images/pipeline_2.png" alt="Pulpit rock" width="2050" height="534">
+            
+
+      </div>
+    </div>
+
+    
+    </div>
+    
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results on Real-world Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+
+        <table>
+          <tr>
+            <td><img src="./static/images/tiger_ori.gif"></td>
+            <td><img src="./static/images/tiger.gif"></td>
+            <td><img src="./static/images/shoe.gif"></td>
+            <td><img src="./static/images/golden_shoe.gif"></td>
+          </tr>
+          
+          <tr>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A vegetable toy tiger"</strong></em></span></td>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A golden sneaker"</strong></em></span></td>
+          </tr>
+          <tr>
+            <td><img src="./static/images/swiss_ori.gif"></td>
+            <td><img src="./static/images/swiss.gif"></td>
+            <td><img src="./static/images/nike_ori.gif"></td>
+            <td><img src="./static/images/nike.gif"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A Swiss bag"</strong></em></span></td>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A Nike sneaker"</strong></em></span></td>
+          </tr>
+
+          <tr>
+            <td><img src="./static/images/tiffany_ori.gif"></td>
+            <td><img src="./static/images/tiffany.gif"></td>
+            <td><img src="./static/images/pineapple_ori.gif"></td>
+            <td><img src="./static/images/pineapple.gif"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A Tiffany blue bag"</strong></em></span></td>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A pineapple-like hat"</strong></em></span></td>
+          </tr>
+
+          <tr>
+            <td><img src="./static/images/star_ori.gif"></td>
+            <td><img src="./static/images/star.gif"></td>
+            <td><img src="./static/images/red_bull_ori.gif"></td>
+            <td><img src="./static/images/red_bull.gif"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A cap with stars on it"</strong></em></span></td>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A Red Bull energy drink"</strong></em></span></td>
+          </tr>
+
+           <tr>
+            <td><img src="./static/images/duck_ori.gif"></td>
+            <td><img src="./static/images/duck.gif"></td>
+            <td><img src="./static/images/pig_ori.gif"></td>
+            <td><img src="./static/images/pig.gif"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A Mallard"</strong></em></span></td>
+            <td colspan="2" align="center"><span style="font-size:18px;"><em><strong>"A pink porcelain piggy toy"</strong></em></span></td>
+          </tr>
+        </table>
+        </div>
+      </div>
+
+
+  </div>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{liu2023item3d,
+  title={ITEM3D: Illumination-Aware Directional Texture Editing for 3D Models},
+  author={Liu, Shengqi and Chen, Zhuo and Gao, Jingnan and Yan, Yichao and Zhu, Wenhan and Li, Xiaobo and Gao, Ke and Lyu, Jiangjing and Yang, Xiaokang},
+  journal={arXiv preprint arXiv:2309.14872},
+  year={2023}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is constructed using the source code provided by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            We are grateful for their template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
