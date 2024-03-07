@@ -1,0 +1,6 @@
+tqdm
+transformers
+accelerate
+diffusers
+open3d==0.14.1
+git+https://github.com/facebookresearch/xformers.git@main#egg=xformers

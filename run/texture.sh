@@ -1,0 +1,1 @@
+python train.py --config configs/gjn_data/bob.json
