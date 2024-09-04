@@ -1,6 +1,8 @@
  # <p align="center"> Directional Texture Editing for 3D Models </p>
 
-#### <p align="center">[Paper](https://arxiv.org/abs/2309.14872) | [Project Page](https://shengqiliu1.github.io/ITEM3D/) </p>
+#### <p align="center"> Computer Graphics Forum (CGF), 2024 </p>
+
+#### <p align="center">[Paper](https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.15196) | [Project Page](https://shengqiliu1.github.io/ITEM3D/) </p>
 
 
 
@@ -50,12 +52,15 @@ Thanks to [NVdiffrec](https://github.com/NVlabs/nvdiffrec), [Stable-DreamFusion]
 
 If you find our work useful, please consider citing:
 ```
-@misc{liu2024directional,
-      title={Directional Texture Editing for 3D Models}, 
-      author={Shengqi Liu and Zhuo Chen and Jingnan Gao and Yichao Yan and Wenhan Zhu and Jiangjing Lyu and Xiaokang Yang},
-      year={2024},
-      eprint={2309.14872},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{https://doi.org/10.1111/cgf.15196,
+author = {Liu, Shengqi and Chen, Zhuo and Gao, Jingnan and Yan, Yichao and Zhu, Wenhan and Lyu, Jiangjing and Yang, Xiaokang},
+title = {Directional Texture Editing for 3D Models},
+journal = {Computer Graphics Forum},
+volume = {n/a},
+number = {n/a},
+pages = {e15196},
+doi = {https://doi.org/10.1111/cgf.15196},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.15196},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1111/cgf.15196}
 }
 ```
